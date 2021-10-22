@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/movie-tinder/static/css/main.640e0628.chunk.css",
+    "main.js": "/movie-tinder/static/js/main.68136e77.chunk.js",
+    "main.js.map": "/movie-tinder/static/js/main.68136e77.chunk.js.map",
+    "runtime-main.js": "/movie-tinder/static/js/runtime-main.66208b77.js",
+    "runtime-main.js.map": "/movie-tinder/static/js/runtime-main.66208b77.js.map",
+    "static/js/2.cddf2aff.chunk.js": "/movie-tinder/static/js/2.cddf2aff.chunk.js",
+    "static/js/2.cddf2aff.chunk.js.map": "/movie-tinder/static/js/2.cddf2aff.chunk.js.map",
+    "static/js/3.0feb1d87.chunk.js": "/movie-tinder/static/js/3.0feb1d87.chunk.js",
+    "static/js/3.0feb1d87.chunk.js.map": "/movie-tinder/static/js/3.0feb1d87.chunk.js.map",
+    "index.html": "/movie-tinder/index.html",
+    "static/css/main.640e0628.chunk.css.map": "/movie-tinder/static/css/main.640e0628.chunk.css.map",
+    "static/js/2.cddf2aff.chunk.js.LICENSE.txt": "/movie-tinder/static/js/2.cddf2aff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66208b77.js",
+    "static/js/2.cddf2aff.chunk.js",
+    "static/css/main.640e0628.chunk.css",
+    "static/js/main.68136e77.chunk.js"
+  ]
+}
