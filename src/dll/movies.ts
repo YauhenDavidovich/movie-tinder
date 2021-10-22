@@ -1,21 +1,11 @@
-import axios from "axios";
+async function getMovies() {
+    try {
+        let response =  await fetch('/movie-tinder/data.json');
+        return await  response.json();
 
-const instance = axios.create({
-    baseURL:
-        './data.json',
-});
-
-export const moviesAPI = {
-    getMovies() {
-        return instance.get<MovieType[]>('');
-    },
-
-};
-
-export interface MovieType {
-    id:       string;
-    imageURL: string;
-    title:    string;
-    summary:  string;
-    rating:   number;
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+export default getMovies

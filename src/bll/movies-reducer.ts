@@ -1,9 +1,17 @@
-import { Dispatch } from 'redux'
-import {moviesAPI, MovieType} from "../dll/movies";
+import {Dispatch} from 'redux'
+import getMovies from "../dll/movies";
+
+export type MovieType = {
+    id:       string;
+    imageURL: string;
+    title:    string;
+    summary:  string;
+    rating:   number;
+}
 
 const initialState: Array<MovieType> = []
 
-export const moviesReducer = (state: Array<MovieType> = initialState, action: ActionsType): Array<MovieType> =>  {
+export const moviesReducer = (state: Array<MovieType> = initialState, action: ActionsType): Array<MovieType> => {
     switch (action.type) {
         case 'SET-MOVIES':
             return action.movies.map(movies => ({...movies}))
@@ -17,9 +25,9 @@ export const setMoviesAC = (movies: Array<MovieType>) => ({type: 'SET-MOVIES', m
 // thunks
 export const fetchMoviesTC = () => {
     return (dispatch: ThunkDispatch) => {
-        moviesAPI.getMovies()
+        getMovies()
             .then((res) => {
-                dispatch(setMoviesAC(res.data))
+                dispatch(setMoviesAC(res))
             })
     }
 }
