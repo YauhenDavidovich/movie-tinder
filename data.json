@@ -1,35 +1,35 @@
 [
   {
     "id": "1and3011",
-    "imageURL": "movie-tinder/images/inferno.jpg",
+    "imageURL": "/images/inferno.jpg",
     "title": "Inferno",
     "summary": "Lorem ipsum....",
     "rating": 5.3
   },
   {
     "id": "1and3012",
-    "imageURL": "movie-tinder/images/star-wars.jpg",
+    "imageURL": "/images/star-wars.jpg",
     "title": "Star Wars: Episode VII - The Force Awakens",
     "summary": "Lorem ipsum....",
     "rating": 8.2
   },
   {
     "id": "1and3013",
-    "imageURL": "movie-tinder/images/batman.jpg",
+    "imageURL": "/images/batman.jpg",
     "title": "Batman Begins",
     "summary": "Lorem ipsum....",
     "rating": 8.5
   },
   {
     "id": "1and3014",
-    "imageURL": "movie-tinder/images/titanic.jpg",
+    "imageURL": "/images/titanic.jpg",
     "title": "Titanic",
     "summary": "Lorem ipsum....",
     "rating": 7.8
   },
   {
     "id": "1and3015",
-    "imageURL": "movie-tinder/images/bond.jpg",
+    "imageURL": "/images/bond.jpg",
     "title": "No Time to Die",
     "summary": "Lorem ipsum....",
     "rating": 7.6
