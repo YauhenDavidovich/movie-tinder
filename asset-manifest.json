@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/movie-tinder/static/css/main.79a10362.chunk.css",
-    "main.js": "/movie-tinder/static/js/main.ddc07740.chunk.js",
-    "main.js.map": "/movie-tinder/static/js/main.ddc07740.chunk.js.map",
+    "main.js": "/movie-tinder/static/js/main.d012697e.chunk.js",
+    "main.js.map": "/movie-tinder/static/js/main.d012697e.chunk.js.map",
     "runtime-main.js": "/movie-tinder/static/js/runtime-main.76331175.js",
     "runtime-main.js.map": "/movie-tinder/static/js/runtime-main.76331175.js.map",
     "static/js/2.ea676fb1.chunk.js": "/movie-tinder/static/js/2.ea676fb1.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.76331175.js",
     "static/js/2.ea676fb1.chunk.js",
     "static/css/main.79a10362.chunk.css",
-    "static/js/main.ddc07740.chunk.js"
+    "static/js/main.d012697e.chunk.js"
   ]
 }
