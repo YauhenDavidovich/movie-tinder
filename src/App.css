@@ -97,8 +97,9 @@ h2 {
 }
 
 .buttons {
-    margin: 20px;
+    position: absolute;
     display: flex;
+    margin: 20px;
 }
 
 .buttons button {

@@ -10,49 +10,42 @@ import TinderCard from 'react-tinder-card'
 function App() {
     const alreadyRemoved = [] as Array<string>
     const dispatch = useDispatch();
-    const movies = useSelector<AppRootStateType, Array<MovieType>>(state => state.movies)
-    const childRefs = useMemo(() => Array(movies.length).fill(0).map(i => React.createRef<any>()), [movies])
-    const [characters, setCharacters] = useState(movies)
-
+    const moviesData = useSelector<AppRootStateType, Array<MovieType>>(state => state.movies)
+    const childRefs = useMemo(() => Array(moviesData.length).fill(0).map(i => React.createRef<any>()), [moviesData])
+    const [movies, setMovies] = useState(moviesData)
+    let moviesState = moviesData
 
     useEffect(() => {
         dispatch(fetchMoviesTC());
     }, [dispatch])
 
     useEffect(() => {
-        setCharacters(movies);
-    }, [movies])
-
-    let charactersState = movies
-
-
-    debugger
+        setMovies(moviesData);
+    }, [moviesData])
 
 
 
-    const swiped = (direction: any, nameToDelete: string) => {
-        alreadyRemoved.push(nameToDelete)
+
+    const swiped = (direction: any, id: string) => {
+        alreadyRemoved.push(id)
+        outOfFrame(id)
         {
-            direction === "right" || "left" ? rejectMovieTC(nameToDelete) : acceptMovieTC(nameToDelete)
+            direction === "right" || "left" ? rejectMovieTC(id) : acceptMovieTC(id)
         }
     }
-    const outOfFrame = (title:string) => {
-
-        charactersState = charactersState.filter(character => character.title !== title)
-        setCharacters(charactersState)
+    const outOfFrame = (id:string) => {
+        moviesState = moviesState.filter(movie => movie.id !== id)
+        setMovies(moviesState)
+        console.log(moviesState)
     }
     const swipe = (dir: string) => {
-        debugger
-
-        const cardsLeft = characters.filter(movie => !alreadyRemoved.includes(movie.title))
+        const cardsLeft = movies.filter(movie => !alreadyRemoved.includes(movie.id))
         if (cardsLeft.length) {
-            const toBeRemoved = cardsLeft[cardsLeft.length - 1].title // Find the card object to be removed
-            const index = movies.map(movie => movie.title).indexOf(toBeRemoved) // Find the index of which to make the reference to
-            alreadyRemoved.push(toBeRemoved) // Make sure the next card gets removed next time if this card do not have time to exit the screen
+            const toBeRemoved = cardsLeft[cardsLeft.length - 1].id
+            const index = moviesData.map(movie => movie.id).indexOf(toBeRemoved)
+            alreadyRemoved.push(toBeRemoved)
             debugger
-            // {dir === "right"? rejectMovieTC(nameToDelete): acceptMovieTC(nameToDelete)}
-
-            childRefs[index]?.current?.swipe(dir) // Swipe the card!
+            childRefs[index]?.current?.swipe(dir)
         }
     }
 
@@ -61,19 +54,19 @@ function App() {
         <div className="App">
             <h1>Movie Tinder</h1>
             <div className='cardContainer'>
-                {charactersState.map((movie, index) =>
-
+                {moviesState.map((movie, index) =>
                         <TinderCard ref={childRefs[index]} className='swipe'
-                                    key={movie.id} onSwipe={(dir) => swiped(dir, movie.title)} onCardLeftScreen={() => outOfFrame(movie.title)}>
+                                    key={movie.id} onSwipe={(dir) => swiped(dir, movie.id)} onCardLeftScreen={() => outOfFrame(movie.id)}>
                             <div style={{backgroundImage: 'url(' + movie.imageURL + ')'}} className='card'>
                                 <h3>{movie.title}</h3>
                             </div>
-                            <div className='buttons'>
-                                <button className='button-reject' onClick={() => swipe('left')}>Reject</button>
-                                <button className='button-accept' onClick={() => swipe('right')}>Accept</button>
-                            </div>
+
                         </TinderCard>
                 )}
+            </div>
+            <div className='buttons' >
+                <button className='button-reject' onClick={() => swipe('left')}>Reject</button>
+                <button className='button-accept' onClick={() => swipe('right')}>Accept</button>
             </div>
 
             <h2 className='infoText'>Swipe a card to the left to reject and right to accept!</h2>
