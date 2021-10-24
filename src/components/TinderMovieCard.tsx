@@ -16,7 +16,6 @@ const TinderMovieCard = (props: TinderMovieCardPropsType) => {
         <div style={{backgroundImage: "url(" + props.movie.imageURL + ")"}} className="card">
             <h3>{props.movie.title}</h3>
         </div>
-
     </TinderCard>;
 }
 
