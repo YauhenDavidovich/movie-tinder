@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {acceptMovieTC, fetchMoviesTC, MovieType, rejectMovieTC} from "./bll/movies-reducer";
 import {AppRootStateType} from "./bll/store";
 import TinderCard from 'react-tinder-card'
+import TinderMovieCard from "./components/TinderMovieCard";
+
 
 
 
@@ -55,13 +57,9 @@ function App() {
             <h1>Movie Tinder</h1>
             <div className='cardContainer'>
                 {moviesState.map((movie, index) =>
-                        <TinderCard ref={childRefs[index]} className='swipe'
-                                    key={movie.id} onSwipe={(dir) => swiped(dir, movie.id)} onCardLeftScreen={() => outOfFrame(movie.id)}>
-                            <div style={{backgroundImage: 'url(' + movie.imageURL + ')'}} className='card'>
-                                <h3>{movie.title}</h3>
-                            </div>
-
-                        </TinderCard>
+                        <TinderMovieCard key={movie.id} childRefs={childRefs} index={index}
+                                         onSwipe={(dir:any) => swiped(dir, movie.id)}
+                                         onCardLeftScreen={() => outOfFrame(movie.id)} movie={movie}/>
                 )}
             </div>
             <div className='buttons' >
