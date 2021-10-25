@@ -17,8 +17,9 @@ export const moviesReducer = (state: Array<MovieType> = initialState, action: Ac
         case 'SET-MOVIES':
             return action.movies.map(movies => ({...movies}))
         case 'ACCEPT-MOVIE':
-            return state
-
+            return state.filter(tl => tl.id != action.id)
+        case 'REJECT-MOVIE':
+            return state.filter(tl => tl.id != action.id)
         default:
             return state
     }
@@ -62,5 +63,8 @@ export const rejectMovieTC = (id:string) => {
 export type SetMoviesActionType = ReturnType<typeof setMoviesAC>;
 export type AcceptMovieActionType = ReturnType<typeof acceptMoviesAC>;
 export type RejectMovieActionType = ReturnType<typeof rejectMoviesAC>;
-type ActionsType = SetMoviesActionType | AcceptMovieActionType | RejectMovieActionType
+type ActionsType =
+    | SetMoviesActionType
+    | AcceptMovieActionType
+    | RejectMovieActionType
 type ThunkDispatch = Dispatch<ActionsType>
